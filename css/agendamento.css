@@ -1,0 +1,135 @@
+/* Reset */
+:root {
+    --cor-primaria: #71c9ce;
+    --cor-secundaria: #a6e3e9;
+    --cor-destaque: #ffb6b9;
+    --cor-texto: #333;
+    --fonte-principal: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  }
+
+/* Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Segoe UI", sans-serif;
+  }
+  
+  body {
+    background-image: url(../imagens/rosario-fernandes-Nnb1f3KBqnU-unsplash.jpg);
+    background-size: cover;
+    background-position: center;
+    background-color: white;
+    color: #ffffff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    padding: 20px;
+  }
+  
+header, a {
+    text-decoration: none;
+    color: black;
+}
+  
+  
+.head {
+    text-decoration: none;
+    width: 100%;
+    color: black;
+    padding: 20px 40px;
+    background-color: white;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 100;
+    display: flex;
+    align-items: center;
+}
+label {
+    color: white;
+    font-weight: bold;
+}
+  .container {
+    background-color: #7fb0b4;
+    padding: 40px;
+    border-radius: 16px;
+    width: 100%;
+    max-width: 400px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.6);
+  }
+  
+  section h1 {
+    font-size: 1.5rem;
+    margin-bottom: 10px;
+  }
+  
+  section p {
+    font-size: 0.9rem;
+    color: white;
+    font-weight: bold;
+    margin-bottom: 30px;
+  }
+  
+  .form label {
+    font-size: 0.9rem;
+    margin-bottom: 5px;
+    display: block;
+  }
+  
+  .form input,
+  .form select {
+    width: 100%;
+    padding: 12px;
+    margin-bottom: 20px;
+    background-color: #2c2c2c;
+    border: 1px solid #444;
+    border-radius: 8px;
+    color: #fff;
+    font-size: 1rem;
+  }
+  
+  .form input::placeholder {
+    color: #999;
+  }
+  
+  button {
+    width: 100%;
+    padding: 12px;
+    background-color: #ffc233;
+    color: #000;
+    font-weight: bold;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background 0.3s;
+  }
+  
+  button:hover {
+    background-color: #e5b832;
+  }
+  
+  /* Responsividade */
+  @media (max-width: 480px) {
+    .container {
+      padding: 20px;
+      border-radius: 12px;
+    }
+  
+    section h1 {
+      font-size: 1.2rem;
+    }
+  
+    section p {
+      font-size: 0.8rem;
+    }
+  
+    .form input,
+    .form select,
+    button {
+      font-size: 0.95rem;
+      padding: 10px;
+    }
+  }
+  

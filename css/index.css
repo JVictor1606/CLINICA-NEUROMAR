@@ -1,0 +1,192 @@
+:root {
+    --cor-primaria: #71c9ce;
+    --cor-secundaria: #a6e3e9;
+    --cor-destaque: #ffb6b9;
+    --cor-texto: #333;
+    --fonte-principal: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  }
+/* Seção Hero */
+.hero {
+    background-image: url(../imagens/passione-m-GOOGOUjRVAA-unsplash.jpg);
+    background-size: cover;
+    background-position: top;
+    background-repeat: no-repeat;
+    background-color: #a6e3e9;
+    color: white;
+    padding: 80px 0;
+    text-align: center;
+}
+
+.hero-content {
+    color: black;
+}
+.hero h2 {
+    font-size: 2.5rem;
+    margin-bottom: 5px;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.hero p {
+    font-size: 1.2rem;
+    max-width: 700px;
+    margin: 0 auto 30px 240px;
+    font-weight: bold;
+}
+
+.hero-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+}
+
+/* Seção Destaques */
+.destaques {
+    padding: 60px 0;
+    background-color: white;
+}
+
+.destaques h2 {
+    text-align: center;
+    margin-bottom: 40px;
+    color: var(--primary-color);
+    font-size: 2rem;
+}
+
+.servicos-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 30px;
+}
+
+.servico-card {
+    background-color: #fff;
+    border-radius: 15px;
+    padding: 30px;
+    text-align: center;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+    transition: all 0.3s ease;
+    border-top: 5px solid var(--secondary-color);
+    animation: fadeIn 0.5s ease forwards;
+}
+
+.servico-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+}
+
+.servico-card i {
+    font-size: 3rem;
+    color: var(--secondary-color);
+    margin-bottom: 20px;
+}
+
+.servico-card h3 {
+    margin-bottom: 15px;
+    color: var(--dark-color);
+}
+
+.servico-card:nth-child(1) { animation-delay: 0.1s; }
+.servico-card:nth-child(2) { animation-delay: 0.2s; }
+.servico-card:nth-child(3) { animation-delay: 0.3s; }
+.servico-card:nth-child(4) { animation-delay: 0.4s; }
+
+/* Seção Depoimentos */
+.depoimentos {
+    padding: 60px 0;
+    background-color: #f9f9f9;
+}
+
+.depoimentos h2 {
+    text-align: center;
+    margin-bottom: 40px;
+    color: var(--primary-color);
+    font-size: 2rem;
+}
+
+.depoimentos-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+}
+
+.depoimento-card {
+    background-color: white;
+    border-radius: 15px;
+    padding: 30px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+    position: relative;
+    animation: fadeIn 0.5s ease forwards;
+}
+
+.depoimento-card::before {
+    font-size: 5rem;
+    color: var(--accent-color);
+    opacity: 0.2;
+    position: absolute;
+    top: 10px;
+    left: 20px;
+}
+
+.depoimento-card p {
+    font-style: italic;
+    margin-bottom: 20px;
+    position: relative;
+    z-index: 1;
+}
+
+.autor {
+    font-weight: bold;
+    color: var(--secondary-color);
+}
+
+.depoimento-card:nth-child(1) { animation-delay: 0.1s; }
+.depoimento-card:nth-child(2) { animation-delay: 0.2s; }
+.depoimento-card:nth-child(3) { animation-delay: 0.3s; }
+
+/* Seção Sobre */
+.sobre {
+    padding: 60px 0;
+    background-color: white;
+}
+
+.sobre-content {
+    display: flex;
+    align-items: center;
+    gap: 50px;
+}
+
+.sobre-text {
+    flex: 1;
+}
+
+.sobre-text h2 {
+    color: var(--primary-color);
+    margin-bottom: 20px;
+    font-size: 2rem;
+}
+
+.sobre-text p {
+    margin-bottom: 15px;
+}
+
+.sobre-image {
+    margin-left: 200px;
+    flex: 1;
+}
+
+.sobre-image img {
+    width: 100%;
+    border-radius: 15px;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+}
+
+
+@media (max-width: 768px) {
+    .hero h2 {
+        font-size: 2rem;
+    }
+    
+    .sobre-content {
+        flex-direction: column;
+    }
+}

@@ -1,0 +1,156 @@
+
+.page-header {
+    background: #a6e3e9;
+    color: black;
+    padding: 60px 0;
+    text-align: center;
+}
+
+.equipe {
+    padding: 60px 0;
+    background-color: #f9f9f9;
+}
+
+.filtro-equipe {
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+.filtro-equipe h3 {
+    color: black;
+    margin-bottom: 20px;
+}
+
+.filtros {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.filtro-btn {
+    padding: 10px 20px;
+    border: none;
+    background-color: #ddd;
+    color: var(--dark-color);
+    border-radius: 30px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-weight: bold;
+}
+
+.filtro-btn:hover, .filtro-btn.active {
+    background-color: black;
+    color: white;
+}
+
+.equipe-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    gap: 30px;
+}
+
+.membro-equipe {
+    background-color: white;
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+    transition: all 0.3s ease;
+    display: flex;
+    animation: fadeIn 0.5s ease forwards;
+}
+
+.membro-equipe:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+}
+
+.membro-img {
+    width: 150px;
+    flex-shrink: 0;
+}
+
+.membro-img img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.membro-info {
+    padding: 20px;
+    flex: 1;
+}
+
+.membro-info h3 {
+    color: var(--primary-color);
+    margin-bottom: 5px;
+}
+
+.especialidade {
+    color: var(--secondary-color);
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+.formacao {
+    color: #666;
+    font-size: 0.9rem;
+    margin-bottom: 15px;
+}
+
+.descricao {
+    margin-bottom: 15px;
+    font-size: 0.95rem;
+}
+
+.membro-contato a {
+    display: inline-block;
+    background-color: var(--accent-color);
+    color: var(--dark-color);
+    padding: 8px 15px;
+    border-radius: 30px;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 0.9rem;
+    transition: all 0.3s ease;
+}
+
+#agendar:hover {
+    background-color: #ffc233;
+}
+#linkedin:hover {
+    background-color: #a6e3e9;
+}
+.fa-linkedin {
+    color: #0e76a8;
+    font-size: 18px;
+}
+
+
+@media (max-width: 768px) {
+    .membro-equipe {
+        flex-direction: column;
+    }
+    
+    .membro-img {
+        width: 100%;
+        height: 200px;
+    }
+    
+    .equipe-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+
+.membro-equipe:nth-child(1) { animation-delay: 0.1s; }
+.membro-equipe:nth-child(2) { animation-delay: 0.2s; }
+.membro-equipe:nth-child(3) { animation-delay: 0.3s; }
+.membro-equipe:nth-child(4) { animation-delay: 0.4s; }
+.membro-equipe:nth-child(5) { animation-delay: 0.5s; }
+.membro-equipe:nth-child(6) { animation-delay: 0.6s; }
+
+
+img {
+    width: 50px;
+}
