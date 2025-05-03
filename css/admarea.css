@@ -1,0 +1,77 @@
+:root {
+  --cor-primaria: #71c9ce;
+  --cor-secundaria: #a6e3e9;
+  --cor-destaque: #ffb6b9;
+  --cor-texto: #333;
+  --fonte-principal: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+    font-family: var(--fonte-principal);
+    margin: 0;
+    display: flex;
+  }
+  .container {
+    display: flex;
+    width: 100%;
+  }
+  .sidebar {
+    width: 220px;
+    background-color: #71c9ce;
+    color: white;
+    padding: 20px;
+    height: 100vh;
+  }
+aside a {
+    text-decoration: none;
+    color: white;
+}
+
+  .sidebar h2 {
+    margin-bottom: 30px;
+  }
+  .sidebar ul {
+    list-style: none;
+    padding: 0;
+  }
+  .sidebar ul li {
+    margin-bottom: 15px;
+  }
+  .sidebar ul li a {
+    color: white;
+    text-decoration: none;
+  }
+  .conteudo {
+    flex-grow: 1;
+    padding: 20px;
+  }
+  form input, form button {
+    margin: 5px;
+    padding: 8px;
+  }
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+  }
+  td img {
+    border-radius: 50%;
+    width: 5px;
+    height: 5px;
+    object-fit: cover;
+  }  
+  th, td {
+    border: 1px solid #ccc;
+    padding: 10px;
+    text-align: left;
+  }
+  .graficos {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 30px;
+    margin-top: 30px;
+  }
+  .graficos canvas {
+    max-width: 500px;
+  }

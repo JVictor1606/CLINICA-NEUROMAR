@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Área Administrativa - NEUROMAR</title>
+  <link rel="stylesheet" href="../css/admarea.css">
+  <script src="../JAVASCRIPT/admarea.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+  <div class="container">
+    <!-- Sidebar -->
+    <aside class="sidebar">
+        <a href="../html/index.html">
+            <h2>NEUROMAR</h2>
+        </a>
+        <nav>
+            <ul>
+            <li><a href="#dashboard">Dashboard</a></li>
+            <li><a href="#funcionarios">Funcionários</a></li>
+          <li><a href="#agendamentos">Agendamentos</a></li>
+            <li><a href="#historico">Histórico</a></li>
+            </ul>
+        </nav>
+    </aside>
+
+    <!-- Conteúdo principal -->
+    <main class="conteudo">
+
+      <!-- Sessão de Funcionários (CRUD) -->
+      <section id="funcionarios">
+        <h1>Funcionários</h1>
+        <form id="form-funcionario">
+          <input type="text" id="nome" placeholder="Nome" required>
+          <input type="email" id="email" placeholder="E-mail" required>
+          <input type="tel" id="telefone" placeholder="Telefone" required>
+          <input type="text" id="departamento" placeholder="Departamento" required>
+          <input type="text" id="status" placeholder="Status (CLT, etc)" required>
+          <input type="file" id="foto" accept="image" required />
+          <input type="text" id="linkedin" placeholder="Link do LinkedIn" required />
+          <button type="submit">Salvar</button>
+        </form>
+
+        <table>
+          <thead>
+            <tr>
+              <th>Foto</th>
+              <th>Nome</th>
+              <th>E-mail</th>
+              <th>Telefone</th>
+              <th>Departamento</th>
+              <th>Status</th>
+              <th>Linkedin</th>
+              <th>Ações</th>
+            </tr>
+          </thead>
+          <tbody id="tabela-funcionarios"></tbody>
+        </table>
+      </section>
+
+      <!-- Sessão de Dashboard -->
+      <section id="dashboard">
+        <h1>Dashboard</h1>
+        <div class="graficos">
+          <div>
+            <h3>Agendamentos</h3>
+            <canvas id="grafico-agendamentos"></canvas>
+          </div>
+          <div>
+            <h3>Atendimentos Médicos</h3>
+            <canvas id="grafico-atendimentos"></canvas>
+          </div>
+        </div>
+      </section>
+    </main>
+  </div>
+
+  <script src="../JAVASCRIPT/funcionarios.js"></script>
+  <script src="../JAVASCRIPT/dashboard.js"></script>
+  <script src="../JAVASCRIPT/login.js"></script>
+</body>
+</html>

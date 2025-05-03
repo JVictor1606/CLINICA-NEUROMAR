@@ -39,7 +39,7 @@
     font-weight: bold;
 }
 
-.filtro-btn:hover, .filtro-btn.active {
+.filtro-btn:hover {
     background-color: black;
     color: white;
 }

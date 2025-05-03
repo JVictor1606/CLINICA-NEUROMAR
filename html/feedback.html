@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>NEUROMAR</title>
+  <link rel="stylesheet" href="../css/feedback.css">
+</head>
+<body>
+    <a href="../html/index.html" class="logo">NEUROMAR</a>
+
+  <div class="container">
+    <h1>Deixe seu Feedback</h1>
+    <form id="feedback-form">
+      <input type="text" id="nome" placeholder="Seu nome (opcional)">
+      <input type="email" id="email" placeholder="Seu e-mail (opcional)">
+      
+      <label for="nota">Nota:</label>
+      <div class="estrelas">
+        <span class="estrela" data-valor="1">&#9733;</span>
+        <span class="estrela" data-valor="2">&#9733;</span>
+        <span class="estrela" data-valor="3">&#9733;</span>
+        <span class="estrela" data-valor="4">&#9733;</span>
+        <span class="estrela" data-valor="5">&#9733;</span>
+      </div>
+
+      <textarea id="comentario" placeholder="Digite seu comentário" required></textarea>
+      <button type="submit">Enviar</button>
+    </form>
+    <p id="mensagem" class="sucesso" style="display: none;">Obrigado pelo seu feedback!</p>
+  </div>
+
+  <script src="../JAVASCRIPT/feedback.js"></script>
+</body>
+</html>

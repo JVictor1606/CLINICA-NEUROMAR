@@ -6,8 +6,7 @@
     --cor-texto: #333;
     --fonte-principal: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   }
-
-/* Reset */
+  
 * {
     margin: 0;
     padding: 0;
@@ -38,7 +37,7 @@ header, a {
     text-decoration: none;
     width: 100%;
     color: black;
-    padding: 20px 40px;
+    padding: 10px 40px;
     background-color: white;
     position: absolute;
     top: 0;
@@ -47,16 +46,21 @@ header, a {
     display: flex;
     align-items: center;
 }
+.texthead {
+  margin-top: -1rem;
+}
 label {
     color: white;
     font-weight: bold;
 }
   .container {
+    margin-top: 3rem;
     background-color: #7fb0b4;
     padding: 40px;
     border-radius: 16px;
     width: 100%;
     max-width: 400px;
+    max-height: 41rem;
     box-shadow: 0 0 10px rgba(0,0,0,0.6);
   }
   
@@ -70,6 +74,10 @@ label {
     color: white;
     font-weight: bold;
     margin-bottom: 30px;
+  }
+
+  .form {
+    margin-top: -1rem;
   }
   
   .form label {

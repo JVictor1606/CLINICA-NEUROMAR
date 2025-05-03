@@ -1,0 +1,70 @@
+:root {
+  --cor-primaria: #71c9ce;
+  --cor-secundaria: #a6e3e9;
+  --cor-destaque: #ffb6b9;
+  --cor-texto: #333;
+  --fonte-principal: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+body {
+    font-family: Arial, sans-serif;
+    background-color: var(--cor-primaria);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+  }
+  
+  .logo {
+    position: absolute;
+    top: 20px;
+    left: 30px;
+    font-size: 24px;
+    font-weight: bold;
+    color: black;
+    text-decoration: none;
+  }
+  
+
+  .login-container {
+    background-color: white;
+    padding: 30px 40px;
+    border-radius: 10px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    width: 300px;
+    text-align: center;
+  }
+  
+  .login-container h1 {
+    margin-bottom: 20px;
+    color: black;
+  }
+  
+  input {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+  }
+  
+  button {
+    width: 107%;
+    padding: 10px;
+    background-color: var(--cor-secundaria);
+    color: black;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+  }
+  
+  button:hover {
+    background-color: var(--cor-primaria);
+  }
+  
+  .erro {
+    color: red;
+    font-size: 0.9em;
+    margin-top: 5px;
+  }
+  
