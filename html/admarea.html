@@ -1,83 +1,114 @@
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Área Administrativa - NEUROMAR</title>
-  <link rel="stylesheet" href="../css/admarea.css">
-  <script src="../JAVASCRIPT/admarea.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Área Administrativa - NEUROMAR</title>
+    <link rel="stylesheet" href="../css/admarea.css">
 </head>
 <body>
-  <div class="container">
-    <!-- Sidebar -->
-    <aside class="sidebar">
-        <a href="../html/index.html">
-            <h2>NEUROMAR</h2>
-        </a>
-        <nav>
-            <ul>
-            <li><a href="#dashboard">Dashboard</a></li>
-            <li><a href="#funcionarios">Funcionários</a></li>
-          <li><a href="#agendamentos">Agendamentos</a></li>
-            <li><a href="#historico">Histórico</a></li>
-            </ul>
-        </nav>
-    </aside>
+    <div class="container">
+        <aside class="sidebar">
+            <a href="../html/index.html">
+                <h2>NEUROMAR</h2>
+            </a>
+            <nav>
+                <ul>
+                    <li><a href="#dashboard">Dashboard</a></li>
+                    <li><a href="#funcionarios" class="active">Funcionários</a></li>
+                    <li><a href="#agendamentos">Agendamentos</a></li>
+                    <li><a href="#historico">Histórico</a></li>
+                </ul>
+            </nav>
+        </aside>
 
-    <!-- Conteúdo principal -->
-    <main class="conteudo">
+        <main class="conteudo">
+            <section id="funcionarios">
+                <h1>Cadastro de Funcionários</h1>
+                
+                <form id="form-funcionario" class="formulario-cadastro">
+                    <div class="foto-container">
+                        <img id="foto-preview" src="../imagens/placeholder.jpg" alt="Pré-visualização da foto">
+                        <input type="file" id="foto" accept="image/*">
+                    </div>
+                    
+                    <div class="form-group">
+                        <input type="text" id="nome" placeholder="Nome completo" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <input type="email" id="email" placeholder="E-mail profissional" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <input type="tel" id="telefone" placeholder="Telefone" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <select id="departamento" required>
+                            <option value="">Selecione o departamento</option>
+                            <option value="Psicologia">Psicologia</option>
+                            <option value="Fonoaudiologia">Fonoaudiologia</option>
+                            <option value="Terapia Ocupacional">Terapia Ocupacional</option>
+                            <option value="Pedagogia">Pedagogia</option>
+                        </select>
+                    </div>
+                    
+                    <div class="form-group">
+                        <select id="status" required>
+                            <option value="">Selecione o status</option>
+                            <option value="CLT">CLT</option>
+                            <option value="PJ">PJ</option>
+                            <option value="Freelancer">Freelancer</option>
+                        </select>
+                    </div>
+                    
+                    <div class="form-group">
+                        <input type="text" id="linkedin" placeholder="Link do LinkedIn" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <input type="text" id="registro" placeholder="Registro profissional (CRP, CRFa, etc)" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <textarea id="descricao" placeholder="Descrição profissional" required></textarea>
+                    </div>
+                    
+                    <div class="form-group checkbox">
+                        <input type="checkbox" id="mostrar-equipe" checked>
+                        <label for="mostrar-equipe">Mostrar na equipe pública</label>
+                    </div>
+                    
+                    <div class="form-group botoes">
+                        <button type="submit" class="btn-salvar">Salvar</button>
+                        <button type="reset" class="btn-cancelar">Cancelar</button>
+                    </div>
+                </form>
+                
+                <div class="tabela-container">
+                    <table class="tabela-funcionarios">
+                        <thead>
+                            <tr>
+                                <th>Foto</th>
+                                <th>Nome</th>
+                                <th>E-mail</th>
+                                <th>Telefone</th>
+                                <th>Departamento</th>
+                                <th>Status</th>
+                                <th>LinkedIn</th>
+                                <th>Ações</th>
+                            </tr>
+                        </thead>
+                        <tbody id="tabela-funcionarios">
+                            <!-- Dados serão carregados via JavaScript -->
+                        </tbody>
+                    </table>
+                </div>
+            </section>
+        </main>
+    </div>
 
-      <!-- Sessão de Funcionários (CRUD) -->
-      <section id="funcionarios">
-        <h1>Funcionários</h1>
-        <form id="form-funcionario">
-          <input type="text" id="nome" placeholder="Nome" required>
-          <input type="email" id="email" placeholder="E-mail" required>
-          <input type="tel" id="telefone" placeholder="Telefone" required>
-          <input type="text" id="departamento" placeholder="Departamento" required>
-          <input type="text" id="status" placeholder="Status (CLT, etc)" required>
-          <input type="file" id="foto" accept="image" required />
-          <input type="text" id="linkedin" placeholder="Link do LinkedIn" required />
-          <button type="submit">Salvar</button>
-        </form>
-
-        <table>
-          <thead>
-            <tr>
-              <th>Foto</th>
-              <th>Nome</th>
-              <th>E-mail</th>
-              <th>Telefone</th>
-              <th>Departamento</th>
-              <th>Status</th>
-              <th>Linkedin</th>
-              <th>Ações</th>
-            </tr>
-          </thead>
-          <tbody id="tabela-funcionarios"></tbody>
-        </table>
-      </section>
-
-      <!-- Sessão de Dashboard -->
-      <section id="dashboard">
-        <h1>Dashboard</h1>
-        <div class="graficos">
-          <div>
-            <h3>Agendamentos</h3>
-            <canvas id="grafico-agendamentos"></canvas>
-          </div>
-          <div>
-            <h3>Atendimentos Médicos</h3>
-            <canvas id="grafico-atendimentos"></canvas>
-          </div>
-        </div>
-      </section>
-    </main>
-  </div>
-
-  <script src="../JAVASCRIPT/funcionarios.js"></script>
-  <script src="../JAVASCRIPT/dashboard.js"></script>
-  <script src="../JAVASCRIPT/login.js"></script>
+    <script src="../JAVASCRIPT/funcionarios.js"></script>
 </body>
 </html>

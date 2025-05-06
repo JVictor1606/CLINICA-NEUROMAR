@@ -3,144 +3,44 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>NEUROMAR</title>
-    <link rel="stylesheet" href="../css/style.css">
-    <link rel="stylesheet" href="../css/index.css">
+    <title>Equipe - NEUROMAR</title>
     <link rel="stylesheet" href="../css/equipe.css">
-    <link rel="stylesheet" href="../html/index.html">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 </head>
 <body>
-    <section class="page-header">
-        <div class="back">
-            <a href="index.html">
-                <img src="../imagens/botao-de-seta-para-a-esquerda-do-teclado.png" alt="Seta para voltar">
-            </a>
-        </div>
-        <div class="container">
-            <h2>Nossa Equipe Multidisciplinar</h2>
-            <p>Profissionais qualificados e comprometidos com o desenvolvimento infantil</p>
-        </div>
-    </section>
+    <!-- Botão Voltar -->
+    <div class="voltar-container">
+        <a href="../html/index.html" class="btn-voltar">
+            <i class="fas fa-chevron-left"></i>
+        </a>
+    </div>
 
-    <section class="equipe">
-        <div class="container">
-            <div class="filtro-equipe">
-                <h3>Filtrar por especialidade:</h3>
-                <div class="filtros">
-                    <button class="filtro-btn active" data-filter="todos">Todos</button>
-                    <button class="filtro-btn" data-filter="psicologia">Psicologia</button>
-                    <button class="filtro-btn" data-filter="fonoaudiologia">Fonoaudiologia</button>
-                    <button class="filtro-btn" data-filter="terapia-ocupacional">Terapia Ocupacional</button>
-                    <button class="filtro-btn" data-filter="pedagogia">Pedagogia</button>
-                </div>
-            </div>
+    <!-- Cabeçalho -->
+    <header class="equipe-header">
+        <h1>Nossa Equipe Multidisciplinar</h1>
+        <p>Profissionais qualificados e comprometidos com o desenvolvimento infantil</p>
+    </header>
 
-            <div class="equipe-grid">
-                <!-- Psicóloga 1 -->
-                <div class="membro-equipe" data-categoria="psicologia">
-                    <div class="membro-img">
-                        <img src="../imagens/rapha.jpg" alt="Dr. Raphael">
-                    </div>
-                    <div class="membro-info">
-                        <h3>Dr. Raphael</h3>
-                        <p class="especialidade">Psicólogo Infantil</p>
-                        <p class="formacao">CRP 12/3456</p>
-                        <p class="descricao">Especialista em Análise do Comportamento Aplicada (ABA) com 10 anos de experiência em transtornos do espectro autista.</p>
-                        <div class="membro-contato">
-                            <a id="agendar" href="../html/agendamento.html"><i class="fas fa-calendar-alt"></i> Agendar</a>
-                            <a id="linkedin" href="https://www.linkedin.com/in/raphael-belfort-3b479a264/" target="_blank"><i class="fab fa-linkedin"></i></a>
-                        </div>
-                    </div>
-                </div>
+    <!-- Filtros -->
+    <div class="filtros-container">
+        <button class="filtro-btn active" data-filter="todos">Todos</button>
+        <button class="filtro-btn" data-filter="Psicologia">Psicologia</button>
+        <button class="filtro-btn" data-filter="Fonoaudiologia">Fonoaudiologia</button>
+        <button class="filtro-btn" data-filter="Terapia Ocupacional">Terapia Ocupacional</button>
+        <button class="filtro-btn" data-filter="Pedagogia">Pedagogia</button>
+    </div>
 
-                <!-- Fonoaudióloga -->
-                <div class="membro-equipe" data-categoria="fonoaudiologia">
-                    <div class="membro-img">
-                        <img src="..//imagens/flizer.jpg" alt="Dr. Flizer">
-                    </div>
-                    <div class="membro-info">
-                        <h3>Dr. Flizer</h3>
-                        <p class="especialidade">Fonoaudiólogo</p>
-                        <p class="formacao">CRFa 2/3456</p>
-                        <p class="descricao">Especialista em distúrbios da comunicação e linguagem infantil, com formação em PECS e comunicação alternativa.</p>
-                        <div class="membro-contato">
-                            <a id="agendar" href="../html/agendamento.html"><i class="fas fa-calendar-alt"></i> Agendar</a>
-                            <a id="linkedin" href="https://www.linkedin.com/in/joão-victor-29b047265/" target="_blank"><i class="fab fa-linkedin"></i></a>
-                        </div>
-                    </div>
-                </div>
+    <!-- Container dos profissionais (será preenchido pelo JavaScript) -->
+    <div class="profissionais-container" id="equipe-container">
+        <!-- Os cards serão inseridos aqui automaticamente -->
+    </div>
 
-                <!-- Terapeuta Ocupacional -->
-                <div class="membro-equipe" data-categoria="terapia-ocupacional">
-                    <div class="membro-img">
-                        <img src="../imagens/max.jpg" alt="Dr. Max">
-                    </div>
-                    <div class="membro-info">
-                        <h3>Dr. Max</h3>
-                        <p class="especialidade">Terapeuta Ocupacional</p>
-                        <p class="formacao">CREFITO 3/1234</p>
-                        <p class="descricao">Especialista em integração sensorial e desenvolvimento motor, com experiência em TEA e TDAH.</p>
-                        <div class="membro-contato">
-                            <a id="agendar" href="../html/agendamento.html"><i class="fas fa-calendar-alt"></i> Agendar</a>
-                            <a id="linkedin" href="https://www.linkedin.com/in/maxwell-le%C3%A3o-6747a324a/?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=ios_app" target="_blank"><i class="fab fa-linkedin"></i></a>
-                        </div>
-                    </div>
-                </div>
+    <!-- Rodapé -->
+    <footer class="equipe-footer">
+        <p>© 2025 NEUROMAR - Todos os direitos reservados</p>
+    </footer>
 
-                <!-- Psicóloga 2 -->
-                <div class="membro-equipe" data-categoria="psicologia">
-                    <div class="membro-img">
-                        <img src="../imagens/nevao.jpeg" alt="Dr. Nevao">
-                    </div>
-                    <div class="membro-info">
-                        <h3>Dr. Nevao</h3>
-                        <p class="especialidade">Psicólogo Infantil</p>
-                        <p class="formacao">CRP 12/7890</p>
-                        <p class="descricao">Especialista em neuropsicologia infantil e dificuldades de aprendizagem, com abordagem cognitivo-comportamental.</p>
-                        <div class="membro-contato">
-                            <a id="agendar" href="../html/agendamento.html"><i class="fas fa-calendar-alt"></i> Agendar</a>
-                            <a id="linkedin" href="https://www.linkedin.com/in/gabrielgoltzman/" target="_blank"><i class="fab fa-linkedin"></i></a>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Pedagoga -->
-                <div class="membro-equipe" data-categoria="pedagogia">
-                    <div class="membro-img">
-                        <img src="../imagens/gustavo.jpg" alt="Dr. Gustavo">
-                    </div>
-                    <div class="membro-info">
-                        <h3>Dr. Gustavo</h3>
-                        <p class="especialidade">Pedagogo Especial</p>
-                        <p class="formacao">MEC 1234567</p>
-                        <p class="descricao">Especialista em educação especial e psicopedagogia, com ênfase em adaptações curriculares e métodos de ensino alternativos.</p>
-                        <div class="membro-contato">
-                            <a id="agendar" href="../html/agendamento.html"><i class="fas fa-calendar-alt"></i> Agendar</a>
-                            <a id="linkedin" href="https://www.linkedin.com/in/raphael-belfort-3b479a264/" target="_blank"><i class="fab fa-linkedin"></i></a>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Psicóloga 3 -->
-                <div class="membro-equipe" data-categoria="psicologia">
-                    <div class="membro-img">
-                        <img src="../imagens/caio.jpg" alt="Dr. Caio">
-                    </div>
-                    <div class="membro-info">
-                        <h3>Dr. Caio</h3>
-                        <p class="especialidade">Psicóloga Clínica</p>
-                        <p class="formacao">CRP 12/1357</p>
-                        <p class="descricao">Especialista em terapia familiar e orientação de pais, com abordagem sistêmica e desenvolvimento emocional infantil.</p>
-                        <div class="membro-contato">
-                            <a id="agendar" href="../html/agendamento.html"><i class="fas fa-calendar-alt"></i> Agendar</a>
-                            <a id="linkedin" href="https://www.linkedin.com/in/caiofontesg?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app" target="_blank"><i class="fab fa-linkedin"></i></a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
+    <!-- Script -->
     <script src="../JAVASCRIPT/equipe.js"></script>
 </body>
 </html>

@@ -5,6 +5,10 @@
     --cor-texto: #333;
     --fonte-principal: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   }
+
+html {
+    scroll-behavior: smooth;
+}
 /* Seção Hero */
 .hero {
     background-image: url(../imagens/passione-m-GOOGOUjRVAA-unsplash.jpg);
@@ -196,4 +200,89 @@
     .sobre-content {
         flex-direction: column;
     }
+}
+
+/* Estilos para o formulário */
+.faleconosco {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    margin-top: 20px;
+}
+
+.faleconosco label {
+    font-weight: bold;
+    margin-bottom: -6px;
+    color: #333;
+}
+
+.faleconosco input, 
+.faleconosco textarea {
+    padding: 12px;
+    border: 1px solid #ddd;
+    border-radius: 6px;
+    font-family: inherit;
+    font-size: 14px;
+    transition: border 0.3s;
+}
+
+.faleconosco input:focus, 
+.faleconosco textarea:focus {
+    border-color: #4CAF50;
+    outline: none;
+    box-shadow: 0 0 0 2px rgba(76, 175, 80, 0.2);
+}
+
+.faleconosco textarea {
+    min-height: 120px;
+    resize: vertical;
+}
+
+.faleconosco button {
+    background-color: #4CAF50;
+    color: white;
+    padding: 14px 24px;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 16px;
+    font-weight: 600;
+    transition: all 0.3s;
+    margin-top: 8px;
+}
+
+.faleconosco button:hover {
+    background-color: #45a049;
+    transform: translateY(-1px);
+}
+
+.faleconosco button:disabled {
+    background-color: #cccccc;
+    cursor: not-allowed;
+    transform: none;
+}
+
+/* Estilos para o feedback */
+#form-feedback {
+    padding: 12px;
+    margin-top: 12px;
+    border-radius: 6px;
+    font-size: 14px;
+}
+
+#form-feedback.success {
+    background-color: #dff0d8;
+    color: #3c763d;
+    border: 1px solid #d6e9c6;
+}
+
+#form-feedback.error {
+    background-color: #f2dede;
+    color: #a94442;
+    border: 1px solid #ebccd1;
+}
+
+/* Estilo para o reCAPTCHA */
+.g-recaptcha {
+    margin: 12px 0;
 }

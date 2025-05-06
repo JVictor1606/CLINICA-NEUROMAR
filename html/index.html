@@ -29,12 +29,10 @@
         </div>
         <nav class="nav">
             <ul>
-                <li><a href="../html/index.html" class="active">Home</a></li>
+                <li><a href="#" class="active">Home</a></li>
                 <li><a href="#sobre">Sobre</a></li>
                 <li><a href="equipe.html">Equipe</a></li>
                 <li><a href="#servicos">Serviços</a></li>
-                <li><a href="agendamento.html">Agendamento</a></li>
-                <li><a href="https://blog.autismoemdia.com.br/blog/diagnostico-de-autismo/" target="_blank">Blog</a></li>
                 <li><a href="#contato">Contato</a></li>
                 <li><a href="../html/feedback.html">Feedback</a></li>
             </ul>
@@ -109,7 +107,7 @@
         <div class="sobre-content">
             <div class="sobre-text">
                 <h2>Sobre a NEUROMAR</h2>
-                <p>Fundada há cinco anos pela psicóloga Ellen Cutrim, a MODELAR nasceu do sonho de oferecer um atendimento integral e humanizado para crianças neurodivergentes.</p>
+                <p>Fundada há cinco anos pela psicóloga Ellen Cutrim, a NEUROMAR nasceu do sonho de oferecer um atendimento integral e humanizado para crianças neurodivergentes.</p>
                 <p>Nossa missão é promover o desenvolvimento pleno de cada criança, respeitando suas individualidades e potencialidades, através de intervenções baseadas em evidências científicas.</p>
                 <p>Contamos com uma estrutura física projetada especialmente para o conforto e segurança das crianças, com salas temáticas e equipamentos adequados para cada tipo de terapia.</p>
             </div>
@@ -151,17 +149,21 @@
                 <h3>Contato</h3>
                 <a href="https://wa.me/5521969955197?text=Olá,%20gostaria%20de%20mais%20informações!" target="_blank" class="button-wpp">
                     <i class="fab fa-whatsapp"></i>Fale conosco</a>
-
-                <form id="faleconosco" class="faleconosco">
+            
+                <form id="faleconosco" class="faleconosco" action="/enviar-email" method="POST">
                     <label for="email">Email</label>
-                    <input type="email" id="email" placeholder="Digite seu email" required>
-
+                    <input type="email" id="email" name="email" placeholder="Digite seu email" required>
+            
                     <label for="assunto">Assunto:</label>
-                    <input type="text" id="assunto" placeholder="Digite o assunto" required>
-
+                    <input type="text" id="assunto" name="assunto" placeholder="Digite o assunto" required>
+            
                     <label for="mensagem">Mensagem</label>
-                    <input type="text" id="mensagem" placeholder="Digite a mensagem" required>
-                    <button type="submit">Enviar email</button>
+                    <textarea id="mensagem" name="mensagem" placeholder="Digite a mensagem" required></textarea>
+                    
+                    <div class="g-recaptcha" data-sitekey="SUA_CHAVE_RECAPTCHA"></div>
+                    
+                    <button type="submit" id="submit-btn">Enviar email</button>
+                    <div id="form-feedback"></div>
                 </form>
             </div>
         </div>

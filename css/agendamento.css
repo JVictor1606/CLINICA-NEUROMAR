@@ -37,7 +37,7 @@ header, a {
     text-decoration: none;
     width: 100%;
     color: black;
-    padding: 10px 40px;
+    padding: 20px 40px;
     background-color: white;
     position: absolute;
     top: 0;
@@ -46,13 +46,20 @@ header, a {
     display: flex;
     align-items: center;
 }
+.head h1 {
+  font-size: 1.5rem;
+  font-family: var(--fonte-principal);
+}
+
 .texthead {
   margin-top: -1rem;
 }
+
 label {
     color: white;
     font-weight: bold;
 }
+
   .container {
     margin-top: 3rem;
     background-color: #7fb0b4;
@@ -140,4 +147,3 @@ label {
       padding: 10px;
     }
   }
-  
