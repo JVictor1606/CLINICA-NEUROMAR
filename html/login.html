@@ -20,6 +20,12 @@
       <form id="form-login" onsubmit="return false">
         <input type="text" id="loginEmail" placeholder="Email" required>
         <input type="password" id="loginSenha" placeholder="Senha" required>
+
+        <div class="ver-senha-container">
+          <input type="checkbox" id="verSenha">
+          <label for="verSenha" class="texto_verSenha">Ver senha</label>
+        </div>
+
         <button type="submit" id="btnLogin">Logar</button>
         <button type="submit" id="btnEsqueceu">Esqueci a senha</button>
         <p id="erro" class="erro"></p>
@@ -29,8 +35,15 @@
       <script type="module">
     import { login, esquecerSenha } from "../javascript/auth.js";
 
+    window.onload = function () {
+    document.getElementById('verSenha').addEventListener('change', function () {
+      const senhaInput = document.getElementById('loginSenha');
+      senhaInput.type = this.checked ? 'text' : 'password';
+    });
+  
     document.getElementById("btnLogin").addEventListener("click", login);
     document.getElementById("btnEsqueceu").addEventListener("click", esquecerSenha);
+  };
     // sei la
   </script>
 </html>

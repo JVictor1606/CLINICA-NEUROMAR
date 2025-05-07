@@ -28,7 +28,7 @@ document.addEventListener('DOMContentLoaded', async function () {
 
             card.innerHTML = `
                 <div class="profissional-foto-container">
-                    <img src="${funcionario.fotoURL || '../imagens/placeholder.jpg'}" 
+                    <img src="${funcionario.fotoBase64 || '../imagens/placeholder.jpg'}" 
                          alt="${funcionario.nome}" class="profissional-foto">
                 </div>
 

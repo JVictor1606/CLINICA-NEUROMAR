@@ -80,3 +80,30 @@ body {
     margin-top: 5px;
   }
   
+  
+
+  .ver-senha-container {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin: 0 0 2em 0;
+    font-size: 14px;
+    color: #333;
+    padding-left: 5px;
+  }
+  
+  .ver-senha-container input[type="checkbox"] {
+    width: 16px;
+    height: 16px;
+    accent-color: #00bcd4; /* cor do checkbox */
+  }
+  
+  .texto_verSenha {
+    cursor: pointer;
+  }
+
+  .texto_verSenha{
+    display: flex;
+    flex-wrap: nowrap;
+    margin-bottom: 1em;
+  }
