@@ -2,53 +2,51 @@
 <html lang="pt-br">
 <head>
   <meta charset="UTF-8">
-  <title>NEUROMAR</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>NEUROMAR - Agendamento</title>
   <link rel="stylesheet" href="../css/agendamento.css">
 </head>
 <body>
   <header class="head">
-        <a href="../html/index.html">
-          <h1>NEUROMAR</h1>
-        </a>
+    <a href="../html/index.html">
+      <h1>NEUROMAR</h1>
+    </a>
   </header>
 
   <div class="container">
     <section class="texthead">
       <h1>Agende um atendimento</h1>
-      <p>Selecione data, serviço e informe seus dados para criar o agendamento</p>
+      <p>Selecione data, serviço, profissional, horário e informe seus dados para criar o agendamento</p>
     </section>
 
-    <form class="form">
+    <form class="form" id="form-agendamento">
       <label for="nome">Nome</label>
       <input type="text" id="nome" placeholder="Digite seu nome" required>
 
       <label for="email">Email</label>
       <input type="email" id="email" placeholder="Digite seu email" required>
 
-      <label for="doutor">Médico(a)</label required>
-      <select id="doutor">
-        <option>Dr. Raphael</option>
-        <option>Dr. Flizer</option>
-        <option>Dr. Max</option>
-        <option>Dr. Nevao</option>
-        <option>Dr. Gustavo</option>
-        <option>Dr. Caio</option>
+      <label for="doutor">Profissional</label>
+      <select id="doutor" required>
+        <option value="">Selecione um profissional</option>
       </select>
 
-      <label for="servico">Serviço</label required>
-      <select id="servico">
-        <option>Psicologia</option>
-        <option>Fonoaudiologia</option>
-        <option>Terapia Ocupacional</option>
-        <option>Pedagogia</option>
+      <label for="servico">Serviço</label>
+      <select id="servico" required>
+        <option value="">Selecione um serviço</option>
       </select>
 
-      <label for="data">Data</label required>
-      <input type="date" id="data">
+      <label for="data">Data</label>
+      <input type="date" id="data" required>
+
+      <label for="hora">Horário</label>
+      <select id="hora" required>
+        <option value="">Selecione um horário</option>
+      </select>
 
       <button type="submit">Agendar</button>
     </form>
   </div>
-  <script src="../JAVASCRIPT/agendamento.js"></script>
+  <script type="module" src="../JAVASCRIPT/agendamento.js"></script>
 </body>
 </html>
