@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Agendamentos - NEUROMAR</title>
+  <link rel="stylesheet" href="../css/agenda_adm.css">
+</head>
+<body>
+  <div class="container">
+    <aside class="sidebar">
+      <a href="../html/index.html">
+        <h2>NEUROMAR</h2>
+      </a>
+      <nav>
+        <ul>
+          <li><a href="dashboard.html">Dashboard</a></li>
+          <li><a href="admarea.html">Funcionários</a></li>
+          <li><a href="agendaAdm.html" class="active">Agendamentos</a></li>
+        </ul>
+      </nav>
+    </aside>
+    <main class="conteudo">
+      <h2>Agendamentos</h2>
+      <table id="tabela-agendamentos">
+        <thead>
+          <tr>
+            <th>Usuário</th>
+            <th>Email</th>
+            <th>Profissional</th>
+            <th>Serviço</th>
+            <th>Data</th>
+            <th>Hora</th>
+            <th>Status</th>
+            <th>Ações</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><td colspan="8" class="empty-table">Carregando agendamentos...</td></tr>
+        </tbody>
+      </table>
+
+      <!-- Modal de Edição -->
+      <div id="modal-editar" class="modal">
+        <div class="modal-conteudo">
+          <h2>Editar Agendamento</h2>
+          <form id="form-editar-agendamento">
+            <label for="edit-nome">Nome</label>
+            <input type="text" id="edit-nome" required>
+
+            <label for="edit-email">Email</label>
+            <input type="email" id="edit-email" required>
+
+            <label for="edit-doutor">Profissional</label>
+            <select id="edit-doutor" required>
+              <option value="">Selecione um profissional</option>
+            </select>
+
+            <label for="edit-servico">Serviço</label>
+            <select id="edit-servico" required>
+              <option value="">Selecione um serviço</option>
+            </select>
+
+            <label for="edit-data">Data</label>
+            <input type="date" id="edit-data" required>
+
+            <label for="edit-hora">Horário</label>
+            <select id="edit-hora" required>
+              <option value="">Selecione um horário</option>
+            </select>
+
+            <label for="edit-status">Status</label>
+            <select id="edit-status" required>
+              <option value="pendente">Pendente</option>
+              <option value="confirmado">Confirmado</option>
+              <option value="cancelado">Cancelado</option>
+            </select>
+
+            <div class="modal-acoes">
+              <button type="submit">Salvar</button>
+              <button type="button" id="cancelar-editar">Cancelar</button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </main>
+  </div>
+  <script type="module" src="../JAVASCRIPT/agenda_adm.js"></script>
+  <!-- Fallback para erros de carregamento do JavaScript -->
+  <script>
+    setTimeout(() => {
+      const tbody = document.querySelector('#tabela-agendamentos tbody');
+      if (tbody.innerHTML.includes('Carregando agendamentos...')) {
+        tbody.innerHTML = '<tr><td colspan="8" class="empty-table">Erro: Não foi possível carregar os agendamentos. Verifique o console para detalhes.</td></tr>';
+      }
+    }, 5000);
+  </script>
+</body>
+</html>
