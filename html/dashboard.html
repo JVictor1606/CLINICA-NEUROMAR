@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dashboard - NEUROMAR</title>
+  <link rel="stylesheet" href="../css/dashboard.css">
+</head>
+<body>
+  <div class="container">
+    <aside class="sidebar">
+      <a href="../html/index.html">
+        <h2>NEUROMAR</h2>
+      </a>
+      <nav>
+        <ul>
+          <li><a href="dashboard.html" class="active">Dashboard</a></li>
+          <li><a href="admarea.html">Funcionários</a></li>
+          <li><a href="agendaAdm.html">Agendamentos</a></li>
+        </ul>
+      </nav>
+    </aside>
+    <main class="conteudo">
+      <h2>Estatísticas</h2>
+      <div class="graficos">
+        <div>
+          <h3>Agendamentos por Dia da Semana</h3>
+          <canvas id="grafico-agendamentos"></canvas>
+        </div>
+        <div>
+          <h3>Atendimentos por Mês</h3>
+          <canvas id="grafico-atendimentos"></canvas>
+        </div>
+      </div>
+    </main>
+  </div>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <script type="module" src="../JAVASCRIPT/dashboard.js"></script>
+</body>
+</html>
