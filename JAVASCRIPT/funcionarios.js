@@ -1,148 +1,142 @@
-document.addEventListener('DOMContentLoaded', function() {
-  // Inicialização
-  const form = document.getElementById('form-funcionario');
-  const fotoInput = document.getElementById('foto');
-  const fotoPreview = document.getElementById('foto-preview');
-  const tabela = document.getElementById('tabela-funcionarios');
-  
-  let funcionarios = JSON.parse(localStorage.getItem('funcionarios')) || [];
-  let editandoIndex = null;
+import { db, storage} from './firebase-config.js';
+import { collection, addDoc,getDocs,deleteDoc, doc, setDoc, getDoc   } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-firestore.js";
+import { ref, uploadBytes, getDownloadURL } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-storage.js";
 
-  // Carregar dados iniciais
-  carregarTabela();
 
-  // Configurar preview da foto
-  fotoInput.addEventListener('change', function(e) {
-      if (e.target.files.length > 0) {
-          const reader = new FileReader();
-          reader.onload = function(event) {
-              fotoPreview.src = event.target.result;
-          };
-          reader.readAsDataURL(e.target.files[0]);
-      }
-  });
+document.getElementById('form-funcionario').addEventListener('submit', async (e) => {
+    e.preventDefault();
 
-  // Submit do formulário
-  form.addEventListener('submit', function(e) {
-      e.preventDefault();
-      salvarFuncionario();
-  });
+    const idEditando = document.getElementById('form-funcionario').getAttribute('data-editando-id');
 
-  // Função para salvar funcionário
-  function salvarFuncionario() {
-      // Validar campos obrigatórios
-      const camposObrigatorios = ['nome', 'email', 'telefone', 'departamento', 'status', 'registro'];
-      for (const campoId of camposObrigatorios) {
-          const campo = document.getElementById(campoId);
-          if (!campo.value.trim()) {
-              alert(`Por favor, preencha o campo ${campo.placeholder || campoId}`);
-              campo.focus();
-              return;
-          }
-      }
+    const nome = document.getElementById('nome').value;
+    const email = document.getElementById('email').value;
+    const telefone = document.getElementById('telefone').value;
+    const departamento = document.getElementById('departamento').value;
+    const status = document.getElementById('status').value;
+    const linkedin = document.getElementById('linkedin').value;
+    const registro = document.getElementById('registro').value;
+    const descricao = document.getElementById('descricao').value;
+    const mostrarEquipe = document.getElementById('mostrar-equipe').checked;
+    const fotoInput = document.getElementById('foto');
+    let fotoURL = "";
 
-      // Criar objeto funcionário
-      const funcionario = {
-          nome: document.getElementById('nome').value,
-          email: document.getElementById('email').value,
-          telefone: document.getElementById('telefone').value,
-          departamento: document.getElementById('departamento').value,
-          status: document.getElementById('status').value,
-          linkedin: document.getElementById('linkedin').value,
-          registro: document.getElementById('registro').value,
-          descricao: document.getElementById('descricao').value,
-          foto: fotoPreview.src,
-          mostrarNaEquipe: document.getElementById('mostrar-equipe').checked
-      };
+    try {
+        if (fotoInput.files.length > 0) {
+            const file = fotoInput.files[0];
+            const storageRef = ref(storage, `fotos/${Date.now()}_${file.name}`);
+            await uploadBytes(storageRef, file);
+            fotoURL = await getDownloadURL(storageRef);
+        }
 
-      // Salvar ou atualizar
-      if (editandoIndex !== null) {
-          funcionarios[editandoIndex] = funcionario;
-      } else {
-          funcionarios.push(funcionario);
-      }
+        const dadosFuncionario = {
+            nome,
+            email,
+            telefone,
+            departamento,
+            status,
+            linkedin,
+            registro,
+            descricao,
+            mostrarEquipe,
+            fotoURL,
+            criadoEm: new Date()
+        };
 
-      // Atualizar localStorage
-      localStorage.setItem('funcionarios', JSON.stringify(funcionarios));
-      
-      // Resetar formulário
-      form.reset();
-      fotoPreview.src = '../imagens/placeholder.jpg';
-      editandoIndex = null;
-      
-      // Recarregar tabela
-      carregarTabela();
-      
-      alert('Funcionário salvo com sucesso!');
-  }
+        if (idEditando) {
+            await setDoc(doc(db, "funcionarios", idEditando), dadosFuncionario);
+            alert("Funcionário atualizado com sucesso!");
+            document.getElementById('form-funcionario').removeAttribute('data-editando-id');
+            document.querySelector('.btn-salvar').textContent = 'Salvar';
+        } else {
+            await addDoc(collection(db, "funcionarios"), dadosFuncionario);
+            alert("Funcionário cadastrado com sucesso!");
+        }
 
-  // Função para carregar dados na tabela
-  function carregarTabela() {
-      tabela.innerHTML = '';
-      
-      if (funcionarios.length === 0) {
-          tabela.innerHTML = `
-              <tr>
-                  <td colspan="8" class="empty-table">Nenhum funcionário cadastrado</td>
-              </tr>`;
-          return;
-      }
-
-      funcionarios.forEach((func, index) => {
-          const tr = document.createElement('tr');
-          tr.innerHTML = `
-              <td><img src="${func.foto || '../imagens/placeholder.jpg'}" class="foto-funcionario"></td>
-              <td>${func.nome}</td>
-              <td>${func.email}</td>
-              <td>${func.telefone}</td>
-              <td>${func.departamento}</td>
-              <td>${func.status}</td>
-              <td><a href="${func.linkedin}" target="_blank" class="linkedin-link">LinkedIn</a></td>
-              <td class="acoes">
-                  <button onclick="editarFuncionario(${index})" class="btn-editar">Editar</button>
-                  <button onclick="removerFuncionario(${index})" class="btn-remover">Remover</button>
-              </td>
-          `;
-          tabela.appendChild(tr);
-      });
-  }
-
-  // Funções globais para edição/remoção
-  window.editarFuncionario = function(index) {
-      const func = funcionarios[index];
-      
-      // Preencher formulário
-      document.getElementById('nome').value = func.nome;
-      document.getElementById('email').value = func.email;
-      document.getElementById('telefone').value = func.telefone;
-      document.getElementById('departamento').value = func.departamento;
-      document.getElementById('status').value = func.status;
-      document.getElementById('linkedin').value = func.linkedin;
-      document.getElementById('registro').value = func.registro;
-      document.getElementById('descricao').value = func.descricao || '';
-      document.getElementById('mostrar-equipe').checked = func.mostrarNaEquipe !== false;
-      
-      // Foto
-      fotoPreview.src = func.foto || '../imagens/placeholder.jpg';
-      
-      // Marcar como editando
-      editandoIndex = index;
-      
-      // Scroll para o topo
-      window.scrollTo({ top: 0, behavior: 'smooth' });
-  };
-
-  window.removerFuncionario = function(index) {
-      if (confirm('Tem certeza que deseja remover este funcionário?')) {
-          funcionarios.splice(index, 1);
-          localStorage.setItem('funcionarios', JSON.stringify(funcionarios));
-          carregarTabela();
-          
-          if (editandoIndex === index) {
-              form.reset();
-              fotoPreview.src = '../imagens/placeholder.jpg';
-              editandoIndex = null;
-          }
-      }
-  };
+        document.getElementById('form-funcionario').reset();
+        carregarFuncionarios();
+    } catch (error) {
+        console.error("Erro ao salvar funcionário:", error);
+        alert("Erro ao salvar funcionário.");
+    }
 });
+
+
+
+async function carregarFuncionarios() {
+    const tabela = document.getElementById('tabela-funcionarios');
+    tabela.innerHTML = "";
+
+    const querySnapshot = await getDocs(collection(db, "funcionarios"));
+    querySnapshot.forEach((doc) => {
+        const dados = doc.data();
+        const tr = document.createElement('tr');
+
+        tr.innerHTML = `
+            <td><img src="${dados.fotoURL || '../imagens/placeholder.jpg'}" width="50" height="50" /></td>
+            <td>${dados.nome}</td>
+            <td>${dados.email}</td>
+            <td>${dados.telefone}</td>
+            <td>${dados.departamento}</td>
+            <td>${dados.status}</td>
+            <td><a href="${dados.linkedin}" target="_blank">LinkedIn</a></td>
+            <td>
+                <button class="btn-editar" onclick="editarFuncionario('${doc.id}')">Editar</button>
+                <button class="btn-remover" onclick="removerFuncionario('${doc.id}')">Excluir</button>
+            </td>
+        `;
+
+        tabela.appendChild(tr);
+    });
+}
+async function removerFuncionario(id) {
+    if (confirm("Tem certeza que deseja excluir este funcionário?")) {
+        try {
+            await deleteDoc(doc(db, "funcionarios", id));
+            alert("Funcionário excluído com sucesso!");
+            carregarFuncionarios(); 
+        } catch (error) {
+            console.error("Erro ao excluir funcionário:", error);
+            alert("Erro ao excluir funcionário.");
+        }
+    }
+}
+
+async function editarFuncionario(id) {
+    const docRef = doc(db, "funcionarios", id);
+    const snapshot = await getDoc(docRef);
+
+    if (snapshot.exists()) {
+        const dados = snapshot.data();
+        
+        document.getElementById('nome').value = dados.nome;
+        document.getElementById('email').value = dados.email;
+        document.getElementById('telefone').value = dados.telefone;
+        document.getElementById('departamento').value = dados.departamento;
+        document.getElementById('status').value = dados.status;
+        document.getElementById('linkedin').value = dados.linkedin;
+        document.getElementById('registro').value = dados.registro;
+        document.getElementById('descricao').value = dados.descricao;
+        document.getElementById('mostrar-equipe').checked = dados.mostrarEquipe;
+
+        // Armazena o ID do documento sendo editado
+        document.getElementById('form-funcionario').setAttribute('data-editando-id', id);
+
+        // Muda botão para "Atualizar"
+        document.querySelector('.btn-salvar').textContent = 'Atualizar';
+    }
+}
+carregarFuncionarios();
+
+document.getElementById('foto').addEventListener('change', function () {
+    const file = this.files[0];
+    if (file) {
+        const reader = new FileReader();
+        reader.onload = function (e) {
+            document.getElementById('foto-preview').src = e.target.result;
+        };
+        reader.readAsDataURL(file);
+    }
+});
+
+window.editarFuncionario = editarFuncionario;
+window.removerFuncionario = removerFuncionario;
